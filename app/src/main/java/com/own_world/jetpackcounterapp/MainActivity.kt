@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.own_world.jetpackcounterapp.ui.theme.CounterViewModals.CounterViewModal
 import com.own_world.jetpackcounterapp.ui.theme.JetpackCounterAppTheme
 
@@ -34,20 +35,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Greeting(vm= CounterViewModal())
+            Greeting()
         }
     }
 }
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier, vm:CounterViewModal) {
+fun Greeting(modifier: Modifier = Modifier, vm:CounterViewModal= viewModel()) {
     Column(
         modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "${vm.Counter.intValue}",
+            text = "${vm.counter.intValue}",
             fontSize = 80.sp,
             modifier = modifier.padding(16.dp)
         )
@@ -60,5 +61,5 @@ fun Greeting(modifier: Modifier = Modifier, vm:CounterViewModal) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Greeting(vm=CounterViewModal())
+    Greeting()
 }

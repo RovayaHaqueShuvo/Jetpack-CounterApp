@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 
 class CounterViewModal:ViewModel() {
     //Private Property can't accessable any other source
-    private val _Counter =  mutableIntStateOf(0)
+    private val _counter =  mutableIntStateOf(0)
 
-    val Counter = _Counter.asIntState()
+    val counter = _counter.asIntState()
 
-    fun inCrease() = _Counter.intValue++
+    fun inCrease() = _counter.intValue++
 }
